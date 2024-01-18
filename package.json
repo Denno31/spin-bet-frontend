@@ -10,10 +10,12 @@
         "lint-file": "eslint -c .eslintrc.js --fix --ext js,jsx,ts,tsx"
     },
     "dependencies": {
+        "@iconify/react": "^4.1.1",
         "@types/node": "20.11.5",
         "@types/react": "18.2.48",
         "@types/react-dom": "18.2.18",
         "babel-plugin-styled-components": "^2.1.4",
+        "classnames": "^2.5.1",
         "cypress": "^11.0.1",
         "eslint": "^8.36.0",
         "eslint-config-airbnb": "^19.0.4",

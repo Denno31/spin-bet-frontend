@@ -1,32 +1,13 @@
-import styled from 'styled-components';
 import Image from 'next/image';
-
-const Nav = styled.nav`
-    background-color: ${({ theme: { color } }) => color.spinDarkGray};
-    padding: 5px;
-    box-sizing: border-box;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-`;
-
-const NavContent = styled.div`
-    display: flex;
-    width: 100%;
-    max-width: 1380px;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-`;
-
-const NavLogo = styled.div`
-    font-size: ${({ theme: { fonts } }) => fonts.xxxl}
-    font-weight: 600;
-    padding: 10px 0 10px;
-`;
+import { IconTemplate } from '../Shared/IconTemplate/IconTemplate';
+import {
+    Nav,
+    NavContent,
+    NavLogo,
+    NavMenu,
+    NavSearchInput,
+    SearchIconContainer,
+} from './NavbarComponents.styled/NavbarComponenents.styled';
 
 export const Navbar = () => {
     return (
@@ -35,6 +16,18 @@ export const Navbar = () => {
                 <NavLogo>
                     <Image src="/assets/spinbet-logo.svg" width="120" height={27} alt="Spinbet" />
                 </NavLogo>
+                <NavSearchInput>
+                    <input type="text " placeholder="Search match" />
+                    <SearchIconContainer>
+                        <IconTemplate svgName="ic:baseline-search" svgWidth={28} />
+                    </SearchIconContainer>
+                </NavSearchInput>
+                <NavMenu>
+                    <IconTemplate label="BLOG" svgName="carbon:blog" />
+                    <IconTemplate label="Gifts" svgName="material-symbols:featured-seasonal-and-gifts-rounded" />
+                    <IconTemplate label="DROPING ODDS" svgName="ph:trend-down" />
+                    <IconTemplate label="NOTIFICATION" svgName="ep:notification" />
+                </NavMenu>
             </NavContent>
         </Nav>
     );

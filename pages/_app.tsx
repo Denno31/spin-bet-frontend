@@ -12,14 +12,14 @@ const theme = {
         spinBetBlue: '#0b6bcb;',
         spinBetWhite: '#f0f8ff',
     },
-    screens: {
+    screen: {
         sm: '640px',
         md: '768px',
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',
     },
-    fonts: {
+    font: {
         xs: '0.75rem',
         sm: '0.875rem',
         base: '1rem',
