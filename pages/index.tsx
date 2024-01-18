@@ -7,9 +7,5 @@ const Container = styled.div`
 `;
 
 export default function Home() {
-    return (
-        <Layout title="home">
-            <Container>The quick brown fox jumped over the lazy dogs</Container>
-        </Layout>
-    );
+    return <Layout title="home">dd</Layout>;
 }
