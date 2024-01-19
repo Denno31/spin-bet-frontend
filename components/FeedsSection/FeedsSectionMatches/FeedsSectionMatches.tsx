@@ -24,9 +24,9 @@ export const FeedsSectionMatches = () => {
     const { matches, filters } = useContext(MatchesContext);
 
     return (
-        <MatchesContainer>
+        <MatchesContainer data-testid="matches-container">
             <FeedsSectionMatchesHeader filters={filters} />
-            <ListSectionWrapper>
+            <ListSectionWrapper data-testid="matches-list">
                 {matches.map((match) => (
                     <FeedsSectionMatchesListItem key={match.id} id={match.id} match={match} />
                 ))}

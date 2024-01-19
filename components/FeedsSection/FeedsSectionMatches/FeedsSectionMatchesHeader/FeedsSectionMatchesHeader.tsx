@@ -84,7 +84,12 @@ export const FeedsSectionMatchesHeader = ({ filters }: Props) => {
                 {filters.map((item) => {
                     const isActive = !!(item.filter === activeFilter.filter);
                     return (
-                        <FilterButton key={item.filter} active={isActive} onClick={() => handleSetActiveFilter(item)}>
+                        <FilterButton
+                            data-testid="filter-button"
+                            key={item.filter}
+                            active={isActive}
+                            onClick={() => handleSetActiveFilter(item)}
+                        >
                             {item.filter}
                             <span>{item.count}</span>
                         </FilterButton>
