@@ -41,3 +41,8 @@ export type Match = {
     };
     liveStatus: string;
 };
+
+export interface FilterObject {
+    filter: string;
+    count: number;
+}

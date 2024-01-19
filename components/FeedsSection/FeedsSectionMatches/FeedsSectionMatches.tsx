@@ -11,11 +11,11 @@ const MatchesContainer = styled.div`
 `;
 
 export const FeedsSectionMatches = () => {
-    const { matches } = useContext(MatchesContext);
+    const { matches, filters } = useContext(MatchesContext);
 
     return (
         <MatchesContainer>
-            <FeedsSectionMatchesHeader />
+            <FeedsSectionMatchesHeader filters={filters} />
             {matches.map((match) => (
                 <FeedsSectionMatchesListItem key={match.id} id={match.id} match={match} />
             ))}

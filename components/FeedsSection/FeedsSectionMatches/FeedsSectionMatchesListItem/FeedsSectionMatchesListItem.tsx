@@ -5,7 +5,8 @@ import Flag from 'react-world-flags';
 import { IconTemplate } from '../../../Shared/IconTemplate/IconTemplate';
 import { MatchesContext, MatchesContextProvider } from '../../../../context/MatchesContextProvider';
 import { extractCountryCodeFromCountryName, getActiveItem } from '../../../../utils/utils';
-import { Match } from '../../../../types/match';
+import { Match } from '../../../../types/types';
+import { format } from 'date-fns';
 
 interface Props {
     id: string;
@@ -68,6 +69,10 @@ const TeamName = styled.div`
     }
 `;
 
+const ScoreWrapper = styled.div`
+    color: ${({ theme: { color } }) => color.spinBetRed} !important;
+`;
+
 export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
     const { handleSetActiveMatch, activeMatch } = useContext(MatchesContext);
     const countryCode = extractCountryCodeFromCountryName(match.country || '');
@@ -77,12 +82,12 @@ export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
                 <FlexBox align="center">
                     <Flag code={countryCode} height={16} />
                     <div>
-                        <CountryName>Russia</CountryName>
-                        <ListItemParagraph>Football National League</ListItemParagraph>
+                        <CountryName>{match?.country}</CountryName>
+                        <ListItemParagraph>{match?.competition}</ListItemParagraph>
                     </div>
                 </FlexBox>
                 <FlexBox align="center">
-                    <ListItemParagraph>Finished</ListItemParagraph>
+                    <ListItemParagraph>{match?.liveStatus}</ListItemParagraph>
                     <Separator></Separator>
                     <IconTemplate svgName="carbon:text-link-analysis" svgWidth={20} />
                 </FlexBox>
@@ -90,8 +95,8 @@ export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
             <MatchListMatchDetailsSectionContainer onClick={() => handleSetActiveMatch(id)}>
                 <FlexBox align="center">
                     <div style={{ textAlign: 'center' }}>
-                        <GameStatusParagraph>17:00</GameStatusParagraph>
-                        <GameStatusParagraph>FT</GameStatusParagraph>
+                        <GameStatusParagraph>{format(new Date(match.timestamp), 'HH:mm')}</GameStatusParagraph>
+                        <GameStatusParagraph>{match?.liveStatus}</GameStatusParagraph>
                     </div>
                     <Separator />
                     <div>
@@ -106,10 +111,10 @@ export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
                     </div>
                 </FlexBox>
                 <FlexBox align="center">
-                    <div>
-                        <p>0</p>
-                        <p>4</p>
-                    </div>
+                    <ScoreWrapper>
+                        <p>{match?.homeScore.current}</p>
+                        <p>{match?.awayScore.current}</p>
+                    </ScoreWrapper>
                     <Separator />
                     <IconTemplate svgName="mi:notification" svgWidth={20} />
                 </FlexBox>

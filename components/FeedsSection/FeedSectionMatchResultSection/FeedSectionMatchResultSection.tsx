@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FlexBox } from '../../Shared/FlexBox/FlexBox';
 import { MatchProgress } from '../../Shared/MatchProgress/MatchProgress';
-import { Match } from '../../../types/match';
+import { Match } from '../../../types/types';
 
 interface Props {
     match: Match | null | undefined;

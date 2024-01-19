@@ -13,6 +13,7 @@ const theme = {
         spinBetBlue: '#2A3543;',
         spinBetWhite: '#f0f8ff',
         spinExtraLightGray: '#aaafb5',
+        spinBetRed: '#C63A38',
     },
     screen: {
         sm: '640px',

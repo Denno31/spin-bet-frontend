@@ -1,6 +1,15 @@
-import React from 'react';
+'use client';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { FlexBox } from '../../../Shared/FlexBox/FlexBox';
+import { FilterObject } from '../../../../types/types';
+import { getFilteredMatches } from '../../../../utils/utils';
+import { MatchesContext } from '../../../../context/MatchesContextProvider';
+import matchesData from '../../../../data.json';
+
+interface Props {
+    filters: FilterObject[];
+}
 
 const HeaderContainer = styled(FlexBox)`
     padding: 15px;
@@ -13,10 +22,10 @@ const FilterButtonsWrapper = styled(FlexBox)`
     width: 60%;
 `;
 
-const FilterButton = styled.button`
+const FilterButton = styled.button<{ active: boolean }>`
     background: transparent;
-    color: ${({ theme: { color } }) => color.spinBetWhite};
-    border: 1px solid ${({ theme: { color } }) => color.spinBetWhite};
+    color: ${({ theme: { color }, active }) => (active ? color.spinGreen : color.spinBetWhite)};
+    border: 1px solid ${({ theme: { color }, active }) => (active ? color.spinGreen : color.spinBetWhite)};
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
@@ -25,7 +34,6 @@ const FilterButton = styled.button`
     font-size: small;
     margin-right: 5px;
     cursor: pointer;
-    border: 1px solid ${({ theme: { color } }) => color.spinBetWhite};
     & > span {
         margin-left: 5px;
     }
@@ -40,25 +48,33 @@ const MatchesCount = styled(FlexBox)`
     font-size: small;
 `;
 
-const buttonItems = [
-    { title: 'All', count: 200 },
-    { title: 'Result', count: 10 },
-    { title: 'Live', count: 20 },
-    { title: 'Upcoming', count: 90 },
-];
+export const FeedsSectionMatchesHeader = ({ filters }: Props) => {
+    const { activeFilter, handleSetActiveFilter, handleSetMatchesData, matches, handleSetActiveMatch } =
+        useContext(MatchesContext);
 
-export const FeedsSectionMatchesHeader = () => {
+    useEffect(() => {
+        const filterMatches = getFilteredMatches(matchesData, activeFilter);
+        handleSetMatchesData(filterMatches);
+    }, [activeFilter]);
+
+    useEffect(() => {
+        handleSetActiveMatch(matches[0].id);
+    }, [matches]);
+
     return (
         <HeaderContainer justify="space-between">
             <FilterButtonsWrapper>
-                {buttonItems.map((item) => (
-                    <FilterButton key={item.title}>
-                        {item.title}
-                        <span>{item.count}</span>
-                    </FilterButton>
-                ))}
+                {filters.map((item) => {
+                    const isActive = !!(item.filter === activeFilter.filter);
+                    return (
+                        <FilterButton key={item.filter} active={isActive} onClick={() => handleSetActiveFilter(item)}>
+                            {item.filter}
+                            <span>{item.count}</span>
+                        </FilterButton>
+                    );
+                })}
             </FilterButtonsWrapper>
-            <MatchesCount>90</MatchesCount>
+            <MatchesCount>{activeFilter.count}</MatchesCount>
         </HeaderContainer>
     );
 };
