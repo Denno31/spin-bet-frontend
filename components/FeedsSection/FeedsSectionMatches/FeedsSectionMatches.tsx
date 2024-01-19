@@ -13,15 +13,24 @@ const MatchesContainer = styled.div`
     }
 `;
 
+const ListSectionWrapper = styled.div`
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        max-height: 100vh;
+        overflow: auto;
+    }
+`;
+
 export const FeedsSectionMatches = () => {
     const { matches, filters } = useContext(MatchesContext);
 
     return (
         <MatchesContainer>
             <FeedsSectionMatchesHeader filters={filters} />
-            {matches.map((match) => (
-                <FeedsSectionMatchesListItem key={match.id} id={match.id} match={match} />
-            ))}
+            <ListSectionWrapper>
+                {matches.map((match) => (
+                    <FeedsSectionMatchesListItem key={match.id} id={match.id} match={match} />
+                ))}
+            </ListSectionWrapper>
         </MatchesContainer>
     );
 };

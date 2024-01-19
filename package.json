@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "lint-file": "eslint -c .eslintrc.js --fix --ext js,jsx,ts,tsx"
+        "lint-file": "eslint -c .eslintrc.js --fix --ext js,jsx,ts,tsx",
+        "cypress": "cypress open"
     },
     "dependencies": {
         "@iconify/react": "^4.1.1",
@@ -16,7 +17,6 @@
         "@types/react-dom": "18.2.18",
         "babel-plugin-styled-components": "^2.1.4",
         "classnames": "^2.5.1",
-        "cypress": "^11.0.1",
         "date-fns": "^3.2.0",
         "eslint": "^8.36.0",
         "eslint-config-airbnb": "^19.0.4",
@@ -39,6 +39,7 @@
     },
     "devDependencies": {
         "@types/react-date-range": "^1.4.9",
-        "@types/react-world-flags": "^1.4.5"
+        "@types/react-world-flags": "^1.4.5",
+        "cypress": "^13.6.3"
     }
 }

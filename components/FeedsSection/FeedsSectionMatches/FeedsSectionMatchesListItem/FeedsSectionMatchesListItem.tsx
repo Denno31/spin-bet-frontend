@@ -101,11 +101,11 @@ export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
                     <Separator />
                     <div>
                         <TeamName>
-                            <IconTemplate svgName="ph:soccer-ball-fill" svgWidth={16} />
+                            <IconTemplate svgColor="#44D25C" svgName="ph:soccer-ball-fill" svgWidth={16} />
                             <p>{match?.homeTeam.name}</p>
                         </TeamName>
                         <TeamName>
-                            <IconTemplate svgName="ph:soccer-ball-fill" svgWidth={16} />
+                            <IconTemplate svgColor="#ffde09" svgName="ph:soccer-ball-fill" svgWidth={16} />
                             <p>{match.awayTeam.name}</p>
                         </TeamName>
                     </div>
