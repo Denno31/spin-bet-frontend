@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { FilterObject, Match } from '../types/types';
 
 export const getActiveItem = (data: Match[], id: string) => {
@@ -19,8 +20,8 @@ export const generateFilters = (matches: Match[]): { filter: string; count: numb
 
     const filters = [
         { filter: 'All', count: allCount },
-        { filter: 'Result', count: resultCount },
         { filter: 'Live', count: liveCount },
+        { filter: 'Result', count: resultCount },
         { filter: 'Upcoming', count: upcomingCount },
     ];
 
@@ -41,14 +42,28 @@ export const getFilteredMatches = (matches: Match[], filterObject: FilterObject)
     }
 };
 
-export const getConicGradientPercentage = (liveStatusType: string) => {
+export const getConicGradientDeg = (liveStatusType: string | undefined, liveStatus: string | undefined) => {
     switch (liveStatusType) {
         case 'inprogress':
-            // calculate percentage
-            return (Number(liveStatusType) * 360) / 90;
+            return (Number(liveStatus) * 360) / 90;
         case 'finished':
             return 360;
         default:
             return 0;
+    }
+};
+
+export const getTextToStatusToShowOnScoreboard = (match: Match | null | undefined) => {
+    console.log(match);
+    if (!match) return '';
+    const liveStatus = parseInt(match.liveStatus, 10);
+    if (!isNaN(liveStatus) && liveStatus >= 0) {
+        return 'LIVE';
+    } else if (match.status.type === 'finished') {
+        return 'ENDED';
+    } else if (match.liveStatus.toLowerCase() === 'cancelled') {
+        return 'CANCELLED';
+    } else {
+        return '';
     }
 };

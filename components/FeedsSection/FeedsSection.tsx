@@ -11,17 +11,29 @@ const FeedSectionWrapper = styled.section`
     width: 100%;
     max-width: 1380px;
     margin: 0.1rem auto;
-    max-width: 1380px;
     & > p {
         font-size: medium;
         color: ${({ theme: { color } }) => color.spinLightGray};
         font-weight: 500;
         margin: 10px 0px;
     }
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 100%;
+    }
 `;
 
 const ResultSectionContainer = styled.div`
-    width: 33%;
+    width: 35%;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 100%;
+    }
+`;
+
+const FeedSectionFlexContainer = styled(FlexBox)`
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
 `;
 
 export const FeedsSection = () => {
@@ -30,13 +42,13 @@ export const FeedsSection = () => {
     return (
         <FeedSectionWrapper>
             <p>Football live scores and schedule</p>
-            <FlexBox justify="space-between">
+            <FeedSectionFlexContainer justify="space-between">
                 <FeedsSectionCalendar />
                 <FeedsSectionMatches />
                 <ResultSectionContainer>
                     <FeedSectionMatchResultSection match={foundMatch} />
                 </ResultSectionContainer>
-            </FlexBox>
+            </FeedSectionFlexContainer>
         </FeedSectionWrapper>
     );
 };

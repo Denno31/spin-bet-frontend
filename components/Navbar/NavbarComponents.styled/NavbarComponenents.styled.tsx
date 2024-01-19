@@ -48,6 +48,9 @@ export const NavSearchInput = styled.div`
         border: none;
         color: ${({ theme: { color } }) => color.spinBetWhite};
     }
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        display: none;
+    }
 `;
 
 export const NavMenu = styled.div`

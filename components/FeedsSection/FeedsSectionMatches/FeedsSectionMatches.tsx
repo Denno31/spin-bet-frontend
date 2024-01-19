@@ -8,6 +8,9 @@ const MatchesContainer = styled.div`
     background-color: ${({ theme: { color } }) => color.spinBetBlue};
     width: 40%;
     border-radius: 4px;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 100%;
+    }
 `;
 
 export const FeedsSectionMatches = () => {

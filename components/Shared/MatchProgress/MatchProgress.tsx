@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getConicGradientDeg } from '../../../utils/utils';
 
-const OuterBox = styled.div`
+interface Props {
+    matchStatus: string | undefined;
+    liveStatus: string | undefined;
+}
+
+const OuterBox = styled.div<{ deg: number }>`
     width: 84px;
     height: 86px;
     position: relative;
     border-radius: 50%;
-    background: conic-gradient(${({ theme: { color } }) => color.spinGreen} 0turn 90deg, #4a535f 0turn);
+    background: conic-gradient(
+        ${({ theme: { color } }) => color.spinGreen} 0turn ${({ deg }) => deg}deg,
+        #4a535f 0turn
+    );
 `;
 const InnerBox = styled.div`
     position: absolute;
@@ -24,10 +33,27 @@ const InnerBox = styled.div`
     font-size: 2rem;
 `;
 
-export const MatchProgress = () => {
+export const MatchProgress = ({ matchStatus, liveStatus }: Props) => {
+    const conicGradientPercentage = getConicGradientDeg(matchStatus, liveStatus);
+
+    const getTextToShowOnCircularProgress = () => {
+        switch (matchStatus) {
+            case 'finished':
+                return 'FT';
+            case 'inprogress':
+                return `${liveStatus}'`;
+            default:
+                return '';
+        }
+    };
+
+    const circularProgressText = getTextToShowOnCircularProgress();
+    console.log(matchStatus, liveStatus, circularProgressText);
+    console.log('the work here', conicGradientPercentage);
+
     return (
-        <OuterBox>
-            <InnerBox>32'</InnerBox>
+        <OuterBox deg={conicGradientPercentage}>
+            <InnerBox>{circularProgressText}</InnerBox>
         </OuterBox>
     );
 };

@@ -23,11 +23,17 @@ const IconTemplateWrapper = styled.div<{ $svgColor?: string }>`
     }
 `;
 
+const IconTemplateLabel = styled.span`
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        display: none;
+    }
+`;
+
 export const IconTemplate = ({ svgName, svgWidth, svgColor, label }: IconTemplateProps) => {
     return (
         <IconTemplateWrapper>
             <Icon color={svgColor} icon={svgName} width={svgWidth} />
-            {label && <span>{label}</span>}
+            {label && <IconTemplateLabel>{label}</IconTemplateLabel>}
         </IconTemplateWrapper>
     );
 };

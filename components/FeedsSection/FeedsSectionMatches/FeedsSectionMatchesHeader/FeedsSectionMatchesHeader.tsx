@@ -16,10 +16,21 @@ const HeaderContainer = styled(FlexBox)`
     background-color: ${({ theme: { color } }) => color.spinDarkGray};
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 100%;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        padding: 15px 5px;
+        margin-top: 0.1rem;
+    }
 `;
 
 const FilterButtonsWrapper = styled(FlexBox)`
     width: 60%;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 100%;
+        justify-content: space-between;
+    }
 `;
 
 const FilterButton = styled.button<{ active: boolean }>`
@@ -37,6 +48,9 @@ const FilterButton = styled.button<{ active: boolean }>`
     & > span {
         margin-left: 5px;
     }
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        font-size: 0.7rem;
+    }
 `;
 
 const MatchesCount = styled(FlexBox)`
@@ -46,6 +60,9 @@ const MatchesCount = styled(FlexBox)`
     background-color: ${({ theme: { color } }) => color.spinBetYellow};
     border-radius: 100%;
     font-size: small;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        display: none;
+    }
 `;
 
 export const FeedsSectionMatchesHeader = ({ filters }: Props) => {
