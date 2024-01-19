@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FeedsSectionMatchesFilter } from './FeedsSectionMatchesFilter/FeedsSectionMatchesFilter';
+import { FeedsSectionMatchesHeader } from './FeedsSectionMatchesHeader/FeedsSectionMatchesHeader';
+import { FeedsSectionMatchesList } from './FeedsSectionMatchesList/FeedsSectionMatchesList';
 
 const MatchesContainer = styled.div`
-    background-color: ${({ theme: { color } }) => color.spinBetDark};
+    background-color: ${({ theme: { color } }) => color.spinBetBlue};
     width: 40%;
     border-radius: 4px;
 `;
@@ -11,7 +12,8 @@ const MatchesContainer = styled.div`
 export const FeedsSectionMatches = () => {
     return (
         <MatchesContainer>
-            <FeedsSectionMatchesFilter />
+            <FeedsSectionMatchesHeader />
+            <FeedsSectionMatchesList />
         </MatchesContainer>
     );
 };

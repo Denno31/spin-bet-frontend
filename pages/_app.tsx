@@ -9,7 +9,7 @@ const theme = {
         spinBetYellow: '#ffde09',
         spinBetDark: '#131a21',
         spinGreen: '#44D25C',
-        spinBetBlue: '#0b6bcb;',
+        spinBetBlue: '#2A3543;',
         spinBetWhite: '#f0f8ff',
     },
     screen: {
