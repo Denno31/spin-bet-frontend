@@ -17,7 +17,7 @@ export const FeedsSectionMatches = () => {
         <MatchesContainer>
             <FeedsSectionMatchesHeader />
             {matches.map((match) => (
-                <FeedsSectionMatchesListItem key={match.id} id={match.id} />
+                <FeedsSectionMatchesListItem key={match.id} id={match.id} match={match} />
             ))}
         </MatchesContainer>
     );

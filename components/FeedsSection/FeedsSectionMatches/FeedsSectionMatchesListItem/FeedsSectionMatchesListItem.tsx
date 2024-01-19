@@ -4,9 +4,12 @@ import { FlexBox } from '../../../Shared/FlexBox/FlexBox';
 import Flag from 'react-world-flags';
 import { IconTemplate } from '../../../Shared/IconTemplate/IconTemplate';
 import { MatchesContext, MatchesContextProvider } from '../../../../context/MatchesContextProvider';
+import { extractCountryCodeFromCountryName, getActiveItem } from '../../../../utils/utils';
+import { Match } from '../../../../types/match';
 
 interface Props {
     id: string;
+    match: Match;
 }
 
 const MatchListItemTopSection = styled(FlexBox)`
@@ -65,14 +68,14 @@ const TeamName = styled.div`
     }
 `;
 
-export const FeedsSectionMatchesListItem = ({ id }: Props) => {
+export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
     const { handleSetActiveMatch, activeMatch } = useContext(MatchesContext);
-    console.log(activeMatch);
+    const countryCode = extractCountryCodeFromCountryName(match.country || '');
     return (
         <>
             <MatchListItemTopSection align="center" role="button" justify="space-between">
                 <FlexBox align="center">
-                    <Flag code={'cze'} height={16} />
+                    <Flag code={countryCode} height={16} />
                     <div>
                         <CountryName>Russia</CountryName>
                         <ListItemParagraph>Football National League</ListItemParagraph>
@@ -94,11 +97,11 @@ export const FeedsSectionMatchesListItem = ({ id }: Props) => {
                     <div>
                         <TeamName>
                             <IconTemplate svgName="ph:soccer-ball-fill" svgWidth={16} />
-                            <p>FK Tyumen</p>
+                            <p>{match?.homeTeam.name}</p>
                         </TeamName>
                         <TeamName>
                             <IconTemplate svgName="ph:soccer-ball-fill" svgWidth={16} />
-                            <p>FK Tyumen</p>
+                            <p>{match.awayTeam.name}</p>
                         </TeamName>
                     </div>
                 </FlexBox>
