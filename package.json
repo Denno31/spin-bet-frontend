@@ -8,7 +8,8 @@
         "start": "next start",
         "lint": "next lint",
         "lint-file": "eslint -c .eslintrc.js --fix --ext js,jsx,ts,tsx",
-        "cypress": "cypress open"
+        "cypress": "cypress open",
+        "test": "npx cypress run"
     },
     "dependencies": {
         "@iconify/react": "^4.1.1",

@@ -52,7 +52,7 @@ const CompetitionTextWrapper = styled.h2`
 export const FeedSectionMatchResultSection = ({ match }: Props) => {
     const matchStatusText = getTextToStatusToShowOnScoreboard(match);
     return (
-        <ScoreBoardWrapper>
+        <ScoreBoardWrapper data-testid="match-progress">
             <div style={{ padding: '15px' }}>
                 <ScoreBoardCountry>{match?.country}</ScoreBoardCountry>
                 <CompetitionTextWrapper>{match?.competition}</CompetitionTextWrapper>

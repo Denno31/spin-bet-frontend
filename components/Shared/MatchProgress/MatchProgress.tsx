@@ -48,11 +48,9 @@ export const MatchProgress = ({ matchStatus, liveStatus }: Props) => {
     };
 
     const circularProgressText = getTextToShowOnCircularProgress();
-    console.log(matchStatus, liveStatus, circularProgressText);
-    console.log('the work here', conicGradientPercentage);
 
     return (
-        <OuterBox deg={conicGradientPercentage}>
+        <OuterBox deg={conicGradientPercentage} data-testid="outer-box">
             <InnerBox>{circularProgressText}</InnerBox>
         </OuterBox>
     );

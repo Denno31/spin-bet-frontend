@@ -25,3 +25,17 @@ describe('FeedsSectionMatchesHeader component', () => {
         cy.get('[data-testid="matches-list"]').should('have.length.greaterThan', 0);
     });
 });
+
+describe('MatchProgress component', () => {
+    it('renders without errors', () => {
+        cy.visit('http://localhost:3000'); // Adjust the URL as needed
+        cy.get('[data-testid="match-progress"]').should('exist');
+    });
+});
+
+describe('MatchProgress component', () => {
+    it('applies conic gradient based on match status', () => {
+        cy.visit('http://localhost:3000');
+        cy.get('[data-testid="outer-box"]').should('have.css', 'background').and('include', 'conic-gradient');
+    });
+});
