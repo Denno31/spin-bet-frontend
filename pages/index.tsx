@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Layout } from '../components/Layout/Layout';
+import { FeedsSection } from '../components/FeedsSection/FeedsSection';
+import { FlexBox } from '../components/Shared/FlexBox/FlexBox';
 
 const Container = styled.div`
     background-color: ${(props) => props.theme.color.spinGreen};
@@ -7,5 +9,11 @@ const Container = styled.div`
 `;
 
 export default function Home() {
-    return <Layout title="home">dd</Layout>;
+    return (
+        <Layout title="home">
+            <FlexBox>
+                <FeedsSection />
+            </FlexBox>
+        </Layout>
+    );
 }

@@ -9,6 +9,9 @@ export const Nav = styled.nav`
     width: 100%;
     align-items: center;
     justify-content: center;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+    }
 `;
 
 export const NavContent = styled.div`

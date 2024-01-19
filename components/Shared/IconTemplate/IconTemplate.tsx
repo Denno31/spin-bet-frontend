@@ -18,6 +18,9 @@ const IconTemplateWrapper = styled.div<{ $svgColor?: string }>`
     & > span {
         margin-left: 5px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const IconTemplate = ({ svgName, svgWidth, svgColor, label }: IconTemplateProps) => {
