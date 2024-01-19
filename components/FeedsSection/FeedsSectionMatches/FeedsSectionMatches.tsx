@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FeedsSectionMatchesHeader } from './FeedsSectionMatchesHeader/FeedsSectionMatchesHeader';
-import { FeedsSectionMatchesList } from './FeedsSectionMatchesList/FeedsSectionMatchesList';
+import { FeedsSectionMatchesListItem } from './FeedsSectionMatchesListItem/FeedsSectionMatchesListItem';
+import { MatchesContext } from '../../../context/MatchesContextProvider';
 
 const MatchesContainer = styled.div`
     background-color: ${({ theme: { color } }) => color.spinBetBlue};
@@ -10,10 +11,14 @@ const MatchesContainer = styled.div`
 `;
 
 export const FeedsSectionMatches = () => {
+    const { matches } = useContext(MatchesContext);
+
     return (
         <MatchesContainer>
             <FeedsSectionMatchesHeader />
-            <FeedsSectionMatchesList />
+            {matches.map((match) => (
+                <FeedsSectionMatchesListItem key={match.id} id={match.id} />
+            ))}
         </MatchesContainer>
     );
 };

@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import { MatchesContextProvider } from '../context/MatchesContextProvider';
 
 const theme = {
     color: {
@@ -11,6 +12,7 @@ const theme = {
         spinGreen: '#44D25C',
         spinBetBlue: '#2A3543;',
         spinBetWhite: '#f0f8ff',
+        spinExtraLightGray: '#aaafb5',
     },
     screen: {
         sm: '640px',
@@ -32,8 +34,10 @@ const theme = {
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <MatchesContextProvider>
+            <ThemeProvider theme={theme}>
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </MatchesContextProvider>
     );
 }
