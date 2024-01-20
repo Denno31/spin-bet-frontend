@@ -9,14 +9,14 @@ import { getActiveItem } from '../../utils/utils';
 
 const FeedSectionWrapper = styled.section`
     width: 100%;
-    max-width: 1380px;
+    max-width: 1400px;
     margin: 0.1rem auto;
     & > p {
         font-size: medium;
         color: ${({ theme: { color } }) => color.spinLightGray};
         font-weight: 500;
         margin: 10px 0px;
-        @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        @media (max-width: ${({ theme: { screen } }) => screen.xl}) {
             display: none;
         }
     }
@@ -32,14 +32,16 @@ const ResultSectionContainer = styled.div`
     }
     @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
             screen.xl}) {
-        width: 49%;
+        width: 80%;
     }
 `;
 
 const FeedSectionFlexContainer = styled(FlexBox)`
-    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+    @media (max-width: ${({ theme: { screen } }) => screen.xl}) {
         flex-direction: column-reverse;
         width: 100%;
+        justify-content: center;
+        align-items: center;
     }
 `;
 

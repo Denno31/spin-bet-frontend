@@ -13,7 +13,8 @@ const MatchesContainer = styled.div`
     }
     @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
             screen.xl}) {
-        width: 50%;
+        width: 80%;
+        margin-top: 1px;
     }
 `;
 
