@@ -11,6 +11,10 @@ const MatchesContainer = styled.div`
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
         width: 100%;
     }
+    @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
+            screen.xl}) {
+        width: 50%;
+    }
 `;
 
 const ListSectionWrapper = styled.div`

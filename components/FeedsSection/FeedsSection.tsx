@@ -30,6 +30,10 @@ const ResultSectionContainer = styled.div`
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
         width: 100%;
     }
+    @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
+            screen.xl}) {
+        width: 49%;
+    }
 `;
 
 const FeedSectionFlexContainer = styled(FlexBox)`

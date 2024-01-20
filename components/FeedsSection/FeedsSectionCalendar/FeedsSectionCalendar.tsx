@@ -5,7 +5,7 @@ import 'react-date-range/dist/theme/default.css';
 import styled from 'styled-components';
 
 const CalendarWrapper = styled.div`
-    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+    @media (max-width: ${({ theme: { screen } }) => screen.xl}) {
         display: none;
     }
 `;

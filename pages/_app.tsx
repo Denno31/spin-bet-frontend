@@ -17,7 +17,7 @@ const theme = {
     },
     screen: {
         sm: '640px',
-        md: '768px',
+        md: '784px',
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',

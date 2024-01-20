@@ -24,7 +24,7 @@ const IconTemplateWrapper = styled.div<{ $svgColor?: string }>`
 `;
 
 const IconTemplateLabel = styled.span`
-    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+    @media (max-width: ${({ theme: { screen } }) => screen.xl}) {
         display: none;
     }
 `;

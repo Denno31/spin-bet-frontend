@@ -60,7 +60,7 @@ const MatchesCount = styled(FlexBox)`
     background-color: ${({ theme: { color } }) => color.spinBetYellow};
     border-radius: 100%;
     font-size: small;
-    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+    @media (max-width: 926px) {
         display: none;
     }
 `;
