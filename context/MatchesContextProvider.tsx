@@ -21,7 +21,7 @@ const initialState = {
 };
 
 export const MatchesContext = createContext<{
-    matches: Match[] | null;
+    matches: Match[];
     handleSetMatchesData: (data: Match[]) => void;
     activeMatch: string | null;
     handleSetActiveMatch: (id: string) => void;
