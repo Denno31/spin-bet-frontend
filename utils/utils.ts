@@ -65,7 +65,6 @@ export const getTextToStatusToShowOnScoreboard = (match: Match | null | undefine
     } else if (match.liveStatus.toLowerCase() === 'cancelled') {
         return 'CANCELLED';
     } else if (!isNaN(match.timestamp)) {
-        console.log(match.timestamp);
         return getDateFormatted(match.timestamp);
     } else {
         return '';
@@ -87,5 +86,10 @@ const getDateFormatted = (date?: number) => {
     const formattedMonth = dateObj.toLocaleString('en-US', { month: 'short' });
     const formattedDate = `${formattedMonth.toUpperCase()} ${formattedDay}`;
 
-    return formattedDate;
+    const hours = dateObj.getHours();
+    const minutes = dateObj.getMinutes();
+
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+    return `${formattedDate} ${formattedTime}`;
 };
