@@ -62,7 +62,28 @@ export const getTextToStatusToShowOnScoreboard = (match: Match | null | undefine
         return 'ENDED';
     } else if (match.liveStatus.toLowerCase() === 'cancelled') {
         return 'CANCELLED';
+    } else if (!isNaN(match.timestamp)) {
+        console.log(match.timestamp);
+        return getDateFormatted(match.timestamp);
     } else {
         return '';
     }
+};
+
+const getDateFormatted = (date?: number) => {
+    const dateObj = new Date(date || '');
+    const day = dateObj.getDate();
+    let formattedDaySuffix;
+
+    if ((day > 3 && day < 21) || day % 10 > 3) {
+        formattedDaySuffix = 'TH';
+    } else {
+        formattedDaySuffix = ['st', 'nd', 'rd'][(day % 10) - 1];
+    }
+
+    const formattedDay = day + formattedDaySuffix;
+    const formattedMonth = dateObj.toLocaleString('en-US', { month: 'short' });
+    const formattedDate = `${formattedMonth.toUpperCase()} ${formattedDay}`;
+
+    return formattedDate;
 };

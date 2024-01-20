@@ -20,6 +20,7 @@ const ScoreBoardWrapper = styled.div`
 `;
 
 const ScoreBoardMatchStatus = styled.p<{ matchStatus: string }>`
+    margin-top: 10px;
     color: ${({ theme: { color }, matchStatus }) => {
         switch (matchStatus) {
             case 'ENDED':
@@ -47,7 +48,6 @@ const StyledH1 = styled.h1`
 
 const MatchProgressContainer = styled(FlexBox)`
     margin: 0 auto;
-    margin-top: 10px;
     width: 90%;
     & > p {
         flex: 1;
@@ -71,11 +71,11 @@ export const FeedSectionMatchResultSection = ({ match }: Props) => {
                 <ScoreBoardCountry>{match?.country}</ScoreBoardCountry>
                 <CompetitionTextWrapper>{match?.competition}</CompetitionTextWrapper>
                 <ScoreBoardMatchStatus matchStatus={matchStatusText}>{matchStatusText}</ScoreBoardMatchStatus>
-                {match?.liveStatus !== '-' && (
-                    <StyledH1>
-                        {match?.homeScore.current} - {match?.awayScore.current}
-                    </StyledH1>
-                )}
+
+                <StyledH1>
+                    {match?.homeScore.current} - {match?.awayScore.current}
+                </StyledH1>
+
                 <MatchProgressContainer align="center" justify="space-between">
                     <p>{match?.homeTeam.name}</p>
                     <MatchProgress matchStatus={match?.status.type} liveStatus={match?.liveStatus} />
