@@ -14,11 +14,24 @@ const ScoreBoardWrapper = styled.div`
     text-align: center;
     color: ${({ theme: { color } }) => color.spinBetWhite};
     padding: 1.2rem 0;
+    & > div {
+        padding: 0.4rem;
+    }
 `;
 
-const ScoreBoardMatchStatus = styled.p`
-    margin-top: 10px;
-    color: ${({ theme: { color } }) => color.spinBetYellow};
+const ScoreBoardMatchStatus = styled.p<{ matchStatus: string }>`
+    color: ${({ theme: { color }, matchStatus }) => {
+        switch (matchStatus) {
+            case 'ENDED':
+                return color.spinGreen;
+            case 'LIVE':
+                return color.spinBetYellow;
+            case 'CANCELLED':
+                return color.spinBetRed;
+            default:
+                return color.default;
+        }
+    }};
 `;
 
 const ScoreBoardCountry = styled.p`
@@ -28,6 +41,8 @@ const ScoreBoardCountry = styled.p`
 
 const StyledH1 = styled.h1`
     font-size: 2rem;
+    font-weight: 350;
+    margin: 12px 0;
 `;
 
 const MatchProgressContainer = styled(FlexBox)`
@@ -44,19 +59,18 @@ const MatchProgressContainer = styled(FlexBox)`
 `;
 
 const CompetitionTextWrapper = styled.h2`
-    font-weight: 450;
+    font-weight: 350;
     font-size: 1.5rem;
-    margin-top: 10px;
 `;
 
 export const FeedSectionMatchResultSection = ({ match }: Props) => {
     const matchStatusText = getTextToStatusToShowOnScoreboard(match);
     return (
         <ScoreBoardWrapper data-testid="match-progress">
-            <div style={{ padding: '15px' }}>
+            <div>
                 <ScoreBoardCountry>{match?.country}</ScoreBoardCountry>
                 <CompetitionTextWrapper>{match?.competition}</CompetitionTextWrapper>
-                <ScoreBoardMatchStatus>{matchStatusText}</ScoreBoardMatchStatus>
+                <ScoreBoardMatchStatus matchStatus={matchStatusText}>{matchStatusText}</ScoreBoardMatchStatus>
                 {match?.liveStatus !== '-' && (
                     <StyledH1>
                         {match?.homeScore.current} - {match?.awayScore.current}

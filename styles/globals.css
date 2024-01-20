@@ -16,6 +16,14 @@ a {
   box-sizing: border-box;
   margin:0;
 }
+.rdrCalendarWrapper {
+  background-color: #2A3543 !important;
+  color: #2A3543!important;
+  border-radius: 0.375rem !important;
+}
 
+.rdrDateDisplayWrapper{
+  background-color: #2A3543 !important
+}
 
 

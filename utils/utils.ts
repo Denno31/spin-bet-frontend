@@ -54,7 +54,6 @@ export const getConicGradientDeg = (liveStatusType: string | undefined, liveStat
 };
 
 export const getTextToStatusToShowOnScoreboard = (match: Match | null | undefined) => {
-    console.log(match);
     if (!match) return '';
     const liveStatus = parseInt(match.liveStatus, 10);
     if (!isNaN(liveStatus) && liveStatus >= 0) {

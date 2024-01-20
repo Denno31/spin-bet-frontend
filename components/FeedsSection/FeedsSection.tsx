@@ -16,6 +16,9 @@ const FeedSectionWrapper = styled.section`
         color: ${({ theme: { color } }) => color.spinLightGray};
         font-weight: 500;
         margin: 10px 0px;
+        @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+            display: none;
+        }
     }
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
         width: 100%;

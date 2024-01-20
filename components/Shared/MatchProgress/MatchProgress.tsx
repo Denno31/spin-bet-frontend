@@ -9,7 +9,7 @@ interface Props {
 
 const OuterBox = styled.div<{ deg: number }>`
     width: 84px;
-    height: 86px;
+    height: 84px;
     position: relative;
     border-radius: 50%;
     background: conic-gradient(
@@ -31,6 +31,9 @@ const InnerBox = styled.div`
     align-items: center;
     color: #fff;
     font-size: 2rem;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        font-size: 1.5rem;
+    }
 `;
 
 export const MatchProgress = ({ matchStatus, liveStatus }: Props) => {
