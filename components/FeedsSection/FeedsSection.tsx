@@ -46,7 +46,6 @@ const FeedSectionFlexContainer = styled(FlexBox)`
 `;
 const AdvertsWrapper = styled.div`
     width: 35%;
-    background-color: red;
 `;
 
 export const FeedsSection = () => {
@@ -60,7 +59,7 @@ export const FeedsSection = () => {
                 <FeedsSectionMatches />
                 <ResultSectionContainer>
                     <FeedSectionMatchResultSection match={foundMatch} />
-                    <AdvertsWrapper>1</AdvertsWrapper>
+                    <AdvertsWrapper />
                 </ResultSectionContainer>
             </FeedSectionFlexContainer>
         </FeedSectionWrapper>
