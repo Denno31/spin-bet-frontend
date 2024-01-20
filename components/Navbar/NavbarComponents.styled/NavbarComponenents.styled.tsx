@@ -17,7 +17,7 @@ export const Nav = styled.nav`
 export const NavContent = styled.div`
     display: flex;
     width: 100%;
-    max-width: 1380px;
+    max-width: 1400px;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;

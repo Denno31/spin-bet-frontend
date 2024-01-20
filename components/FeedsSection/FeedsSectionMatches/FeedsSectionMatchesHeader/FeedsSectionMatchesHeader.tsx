@@ -31,6 +31,10 @@ const FilterButtonsWrapper = styled(FlexBox)`
         width: 100%;
         justify-content: space-between;
     }
+    @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
+            screen.xl}) {
+        justify-content: space-between;
+    }
 `;
 
 const FilterButton = styled.button<{ active: boolean }>`
@@ -50,6 +54,10 @@ const FilterButton = styled.button<{ active: boolean }>`
     }
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
         font-size: 0.7rem;
+    }
+    @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
+            screen.xl}) {
+        margin-right: 3px;
     }
 `;
 
