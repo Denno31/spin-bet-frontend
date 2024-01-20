@@ -44,6 +44,9 @@ const FeedSectionFlexContainer = styled(FlexBox)`
         align-items: center;
     }
 `;
+const AdvertsWrapper = styled.div`
+    width: 35%;
+`;
 
 export const FeedsSection = () => {
     const { activeMatch, matches } = useContext(MatchesContext);
@@ -56,6 +59,7 @@ export const FeedsSection = () => {
                 <FeedsSectionMatches />
                 <ResultSectionContainer>
                     <FeedSectionMatchResultSection match={foundMatch} />
+                    <AdvertsWrapper />
                 </ResultSectionContainer>
             </FeedSectionFlexContainer>
         </FeedSectionWrapper>
