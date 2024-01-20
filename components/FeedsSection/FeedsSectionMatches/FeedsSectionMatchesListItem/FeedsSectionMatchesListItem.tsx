@@ -73,7 +73,7 @@ const ScoreWrapper = styled.div`
     color: ${({ theme: { color } }) => color.spinBetRed} !important;
 `;
 
-export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
+export const FeedsSectionMatchesListItem = ({ match }: Props) => {
     const { handleSetActiveMatch, activeMatch } = useContext(MatchesContext);
     const countryCode = extractCountryCodeFromCountryName(match.country || '');
     return (
@@ -92,7 +92,7 @@ export const FeedsSectionMatchesListItem = ({ id, match }: Props) => {
                     <IconTemplate svgName="carbon:text-link-analysis" svgWidth={20} />
                 </FlexBox>
             </MatchListItemTopSection>
-            <MatchListMatchDetailsSectionContainer onClick={() => handleSetActiveMatch(id)}>
+            <MatchListMatchDetailsSectionContainer onClick={() => handleSetActiveMatch(match)}>
                 <FlexBox align="center">
                     <div style={{ textAlign: 'center' }}>
                         <GameStatusParagraph>{format(new Date(match.timestamp), 'HH:mm')}</GameStatusParagraph>
