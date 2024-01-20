@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FeedsSectionCalendar } from './FeedsSectionCalendar/FeedsSectionCalendar';
 import { FeedsSectionMatches } from './FeedsSectionMatches/FeedsSectionMatches';
 import { FlexBox } from '../Shared/FlexBox/FlexBox';
@@ -51,6 +51,7 @@ const AdvertsWrapper = styled.div`
 export const FeedsSection = () => {
     const { activeMatch, matches } = useContext(MatchesContext);
     const foundMatch = activeMatch ? getActiveItem(matches, activeMatch) : null;
+
     return (
         <FeedSectionWrapper>
             <p>Football live scores and schedule</p>

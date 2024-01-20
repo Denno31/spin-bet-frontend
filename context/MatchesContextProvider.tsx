@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useMemo, useState } from 'react';
 import matchesData from '../data.json';
 
 import { generateFilters } from '../utils/utils';
@@ -21,7 +21,7 @@ const initialState = {
 };
 
 export const MatchesContext = createContext<{
-    matches: Match[];
+    matches: Match[] | null;
     handleSetMatchesData: (data: Match[]) => void;
     activeMatch: string | null;
     handleSetActiveMatch: (id: string) => void;
@@ -46,15 +46,18 @@ export const MatchesContextProvider = ({ children }: Props) => {
         setActiveFilter(filter);
     };
 
-    const contextValue = {
-        matches,
-        handleSetMatchesData,
-        activeMatch,
-        handleSetActiveMatch,
-        filters: initialState.filters,
-        activeFilter,
-        handleSetActiveFilter,
-    };
+    const contextValue = useMemo(
+        () => ({
+            matches,
+            handleSetMatchesData,
+            activeMatch,
+            handleSetActiveMatch,
+            filters: generateFilters(matchesData),
+            activeFilter,
+            handleSetActiveFilter,
+        }),
+        [matches, activeMatch, activeFilter]
+    );
 
     return <MatchesContext.Provider value={contextValue}>{children}</MatchesContext.Provider>;
 };
