@@ -44,9 +44,6 @@ const FeedSectionFlexContainer = styled(FlexBox)`
         align-items: center;
     }
 `;
-const AdvertsWrapper = styled.div`
-    width: 35%;
-`;
 
 export const FeedsSection = () => {
     const [isScoreCardLoaded, setIsScoreCardLoaded] = useState(false);
@@ -65,7 +62,6 @@ export const FeedsSection = () => {
                         isScoreCardLoaded={isScoreCardLoaded}
                         handleSetIsScoreCardLoaded={setIsScoreCardLoaded}
                     />
-                    <AdvertsWrapper />
                 </ResultSectionContainer>
             </FeedSectionFlexContainer>
         </FeedSectionWrapper>
