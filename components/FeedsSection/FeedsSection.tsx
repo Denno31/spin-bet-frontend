@@ -50,6 +50,7 @@ const AdvertsWrapper = styled.div`
 `;
 
 export const FeedsSection = () => {
+    const [isScoreCardLoaded, setIsScoreCardLoaded] = useState(false);
     const { activeMatch, matches } = useContext(MatchesContext);
     const foundMatch = activeMatch ? getActiveItem(matches, activeMatch) : null;
 
@@ -58,9 +59,13 @@ export const FeedsSection = () => {
             <p>Football live scores and schedule</p>
             <FeedSectionFlexContainer justify="space-between">
                 <FeedsSectionCalendar />
-                <FeedsSectionMatches />
+                {isScoreCardLoaded && <FeedsSectionMatches />}
                 <ResultSectionContainer>
-                    <FeedSectionMatchResultSection match={foundMatch} />
+                    <FeedSectionMatchResultSection
+                        match={foundMatch}
+                        isScoreCardLoaded={isScoreCardLoaded}
+                        handleSetIsScoreCardLoaded={setIsScoreCardLoaded}
+                    />
                     <AdvertsWrapper />
                 </ResultSectionContainer>
             </FeedSectionFlexContainer>
