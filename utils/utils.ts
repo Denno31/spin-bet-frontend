@@ -43,7 +43,6 @@ export const getFilteredMatches = (matches: Match[], filterObject: FilterObject)
 };
 
 export const getConicGradientDeg = (liveStatusType: string | undefined, liveStatus: string | undefined) => {
-    console.log(liveStatusType, liveStatus);
     switch (liveStatusType) {
         case 'inprogress':
             const statusValue = liveStatus === 'HT' ? 45 : liveStatus?.replace(/[^0-9|.]/, '');
