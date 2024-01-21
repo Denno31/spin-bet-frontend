@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { FeedSectionMatchResultSection } from './FeedSectionMatchResultSection/FeedSectionMatchResultSection';
 import { MatchesContext } from '../../context/MatchesContextProvider';
 import { getActiveItem } from '../../utils/utils';
+import { LoadingSpinner } from '../Shared/LoadingSpinner/LoadingSpinner';
 
 const FeedSectionWrapper = styled.section`
     width: 100%;
@@ -55,6 +56,7 @@ export const FeedsSection = () => {
             <p>Football live scores and schedule</p>
             <FeedSectionFlexContainer justify="space-between">
                 <FeedsSectionCalendar />
+                {!isScoreCardLoaded && <LoadingSpinner />}
                 {isScoreCardLoaded && <FeedsSectionMatches />}
                 <ResultSectionContainer>
                     <FeedSectionMatchResultSection
