@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FeedsSectionCalendar } from './FeedsSectionCalendar/FeedsSectionCalendar';
 import { FeedsSectionMatches } from './FeedsSectionMatches/FeedsSectionMatches';
 import { FlexBox } from '../Shared/FlexBox/FlexBox';
@@ -44,18 +44,28 @@ const FeedSectionFlexContainer = styled(FlexBox)`
         align-items: center;
     }
 `;
+const AdvertsWrapper = styled.div`
+    width: 35%;
+`;
 
 export const FeedsSection = () => {
+    const [isScoreCardLoaded, setIsScoreCardLoaded] = useState(false);
     const { activeMatch, matches } = useContext(MatchesContext);
     const foundMatch = activeMatch ? getActiveItem(matches, activeMatch) : null;
+
     return (
         <FeedSectionWrapper>
             <p>Football live scores and schedule</p>
             <FeedSectionFlexContainer justify="space-between">
                 <FeedsSectionCalendar />
-                <FeedsSectionMatches />
+                {isScoreCardLoaded && <FeedsSectionMatches />}
                 <ResultSectionContainer>
-                    <FeedSectionMatchResultSection match={foundMatch} />
+                    <FeedSectionMatchResultSection
+                        match={foundMatch}
+                        isScoreCardLoaded={isScoreCardLoaded}
+                        handleSetIsScoreCardLoaded={setIsScoreCardLoaded}
+                    />
+                    <AdvertsWrapper />
                 </ResultSectionContainer>
             </FeedSectionFlexContainer>
         </FeedSectionWrapper>

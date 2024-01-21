@@ -83,7 +83,7 @@ export const FeedsSectionMatchesHeader = ({ filters }: Props) => {
     }, [activeFilter]);
 
     useEffect(() => {
-        handleSetActiveMatch(matches[0].id);
+        handleSetActiveMatch(matches[0]);
     }, [matches]);
 
     return (

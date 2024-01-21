@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { FlexBox } from '../../Shared/FlexBox/FlexBox';
 import { MatchProgress } from '../../Shared/MatchProgress/MatchProgress';
@@ -7,6 +7,8 @@ import { getTextToStatusToShowOnScoreboard } from '../../../utils/utils';
 
 interface Props {
     match: Match | null | undefined;
+    isScoreCardLoaded: boolean;
+    handleSetIsScoreCardLoaded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ScoreBoardWrapper = styled.div`
@@ -63,8 +65,14 @@ const CompetitionTextWrapper = styled.h2`
     font-size: 1.5rem;
 `;
 
-export const FeedSectionMatchResultSection = ({ match }: Props) => {
+export const FeedSectionMatchResultSection = ({ match, handleSetIsScoreCardLoaded }: Props) => {
     const matchStatusText = getTextToStatusToShowOnScoreboard(match);
+    const setIsScoreCardLoaded = useCallback(() => {
+        handleSetIsScoreCardLoaded(true);
+    }, []);
+    useEffect(() => {
+        handleSetIsScoreCardLoaded(true);
+    }, []);
     return (
         <ScoreBoardWrapper data-testid="match-progress">
             <div>

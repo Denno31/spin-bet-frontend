@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
 import { FilterObject, Match } from '../types/types';
 
-export const getActiveItem = (data: Match[], id: string) => {
-    return data.find((item) => item.id === id);
+export const getActiveItem = (data: Match[], match: Match) => {
+    return data.find((item) => item.id === match.id);
 };
 
 export const extractCountryCodeFromCountryName = (countryName: string) => {
