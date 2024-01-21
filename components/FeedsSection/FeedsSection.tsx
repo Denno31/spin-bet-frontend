@@ -26,7 +26,8 @@ const FeedSectionWrapper = styled.section`
 `;
 
 const ResultSectionContainer = styled.div`
-    width: 35%;
+    min-width: 35%;
+    border: 2px solid red;
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
         width: 100%;
     }
