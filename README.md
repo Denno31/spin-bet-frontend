@@ -17,13 +17,20 @@ Make sure you have Node.js installed on your machine. The app is designed to run
 ```bash
 git clone https://github.com/your-username/soccer-live-score.git
 cd soccer-live-score
-
+```
+Install Dependencies
+```bash
 npm install
-
+```
+Run App
+```bash
 npm run dev
-
+```
+Open your browser and navigate to http://localhost:3000 to view the app.
+Running Test
+```bash
 npm run test
-
+```
 This will execute the test suite and provide feedback on the app's functionality.
 
 Live Version
