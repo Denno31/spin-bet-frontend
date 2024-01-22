@@ -96,7 +96,7 @@ export const FeedSectionMatchResultSection = ({ match, handleSetIsScoreCardLoade
                 <ScoreBoardMatchStatus matchStatus={matchStatusText}>{matchStatusText}</ScoreBoardMatchStatus>
 
                 <StyledH1>
-                    {match?.homeScore.current} - {match?.awayScore.current}
+                    {match?.homeScore.current || 0} - {match?.awayScore.current || 0}
                 </StyledH1>
 
                 <MatchProgressContainer align="center" justify="space-between">
