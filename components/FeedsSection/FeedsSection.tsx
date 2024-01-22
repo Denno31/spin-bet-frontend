@@ -56,7 +56,7 @@ export const FeedsSection = () => {
             <p>Football live scores and schedule</p>
             <FeedSectionFlexContainer justify="space-between">
                 <FeedsSectionCalendar />
-                {!isScoreCardLoaded && <LoadingSpinner />}
+                {/* {!isScoreCardLoaded && <LoadingSpinner />} */}
                 {isScoreCardLoaded && <FeedsSectionMatches />}
                 <ResultSectionContainer>
                     <FeedSectionMatchResultSection
