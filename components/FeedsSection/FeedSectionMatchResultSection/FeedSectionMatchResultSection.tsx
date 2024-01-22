@@ -18,6 +18,12 @@ const ScoreBoardWrapper = styled.div`
     padding: 1.2rem 0;
     & > div {
         padding: 0.4rem;
+        @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+            padding: 0.2rem 0;
+        }
+    }
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        padding: 0.5rem 0;
     }
 `;
 
@@ -35,6 +41,9 @@ const ScoreBoardMatchStatus = styled.p<{ matchStatus: string }>`
                 return color.default;
         }
     }};
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        margin-top: 8px;
+    }
 `;
 
 const ScoreBoardCountry = styled.p`
@@ -57,12 +66,18 @@ const MatchProgressContainer = styled(FlexBox)`
         font-size: large;
         white-space: normal;
         overflow-wrap: break-word;
+        @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+            font-size: medium;
+        }
     }
 `;
 
 const CompetitionTextWrapper = styled.h2`
     font-weight: 350;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        font-size: 1.2rem;
+    }
 `;
 
 export const FeedSectionMatchResultSection = ({ match, handleSetIsScoreCardLoaded }: Props) => {

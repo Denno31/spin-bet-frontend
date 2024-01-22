@@ -16,6 +16,10 @@ const OuterBox = styled.div<{ deg: number }>`
         ${({ theme: { color } }) => color.spinGreen} 0turn ${({ deg }) => deg}deg,
         #4a535f 0turn
     );
+    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
+        width: 82px;
+        height: 82px;
+    }
 `;
 const InnerBox = styled.div`
     position: absolute;
@@ -32,7 +36,9 @@ const InnerBox = styled.div`
     color: #fff;
     font-size: 2rem;
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        width: 79px;
+        height: 79px;
     }
 `;
 
