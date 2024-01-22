@@ -19,15 +19,8 @@ const MatchesContainer = styled.div`
 `;
 
 const ListSectionWrapper = styled.div`
-    @media (max-width: ${({ theme: { screen } }) => screen.md}) {
-        max-height: 100vh;
-        overflow: auto;
-    }
-    @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
-            screen.xl}) {
-        height: 100vh;
-        overflow: auto;
-    }
+    max-height: 100vh;
+    overflow: auto;
 `;
 
 export const FeedsSectionMatches = () => {
