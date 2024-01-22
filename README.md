@@ -15,7 +15,7 @@ Make sure you have Node.js installed on your machine. The app is designed to run
 ### Clone the Repository
 
 ```bash
-git@github.com:Denno31/spin-bet-frontend.git
+https://github.com/Denno31/spin-bet-frontend.git
 cd soccer-live-score
 ```
 Install Dependencies
