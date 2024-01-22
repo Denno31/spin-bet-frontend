@@ -55,13 +55,15 @@ export const getConicGradientDeg = (liveStatusType: string | undefined, liveStat
 };
 
 export const getTextToStatusToShowOnScoreboard = (match: Match | null | undefined) => {
+    console.log(match);
+    console.log('cancelled', match?.liveStatus.toLowerCase() === 'cancelled');
     if (!match) return '';
     const liveStatus = parseInt(match.liveStatus, 10);
     if (!isNaN(liveStatus) && liveStatus >= 0) {
         return 'LIVE';
     } else if (match.status.type === 'finished') {
         return 'ENDED';
-    } else if (match.liveStatus.toLowerCase() === 'cancelled') {
+    } else if (match.liveStatus.toLowerCase() === 'canceled') {
         return 'CANCELLED';
     } else if (!isNaN(match.timestamp)) {
         return getDateFormatted(match.timestamp);
