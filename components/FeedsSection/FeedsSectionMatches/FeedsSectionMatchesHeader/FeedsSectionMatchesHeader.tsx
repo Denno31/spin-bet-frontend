@@ -53,7 +53,7 @@ const FilterButton = styled.button<{ active: boolean }>`
         margin-left: 5px;
     }
     @media (max-width: ${({ theme: { screen } }) => screen.md}) {
-        font-size: 0.8rem;
+        font-size: 0.7rem !important;
     }
     @media (min-width: ${({ theme: { screen } }) => screen.md}) and (max-width: ${({ theme: { screen } }) =>
             screen.xl}) {
